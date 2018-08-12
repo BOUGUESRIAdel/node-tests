@@ -10,10 +10,25 @@ it("should add two numbers",() =>{
         
 });
 
+it("should async add two numbers",() =>{
+  return util.addAsync(15, 25).then((sum) => {
+    expect(sum).toBeA('number').toBe(40);
+  });
+      
+});
+
 it("should square a number",() =>{
     var res = util.square(5);
     expect(res).toBeA('number').toBe(25);
         
+});
+
+it("should async square a number",(done) =>{
+    util.squareAsync(5, (square) => {
+      expect(square).toBeA('number').toBe(25);
+      done();
+    });
+      
 });
 
 it('should set firstName and lastName', () => {
